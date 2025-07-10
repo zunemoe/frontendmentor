@@ -1,0 +1,247 @@
+/* ==========================================================================
+   CSS RESET
+   ========================================================================== */
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  /* 4. Add accessible line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+/*
+  10. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+
+:root {
+    --color-white: hsl(0, 0%, 100%);
+    --color-stone-100: hsl(30, 54%, 90%);
+    --color-stone-150: hsl(30, 18%, 87%);
+    --color-stone-600: hsl(30, 10%, 34%);
+    --color-stone-900: hsl(24, 5%, 18%);
+    --color-brown-800: hsl(14, 45%, 36%);
+    --color-rose-800: hsl(332, 51%, 32%);
+    --color-rose-50: hsl(330, 100%, 98%);
+    --font-family-heading: 'Young Serif', serif;
+    --font-family-body: 'Outfit', serif;
+    --font-weight-regular: 400;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-size-xl: 40px;
+    --font-size-l: 28px;
+    --font-size-m: 20px;
+    --font-size-s: 16px;
+    --spacing-xxl: 128px;
+    --spacing-xl: 40px;
+    --spacing-l: 32px;
+    --spacing-m: 24px;
+    --spacing-s: 16px;
+    --spacing-xs: 12px;
+    --spacing-xxs: 8px;
+    --corner-radius-l: 24px;
+    --corner-radius-s: 12px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-stone-100);
+    min-width: 100dvw;
+    min-height: 100dvh;
+    align-items: center;
+    padding: var(--spacing-xxl) 0;
+}
+
+.recipe-card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-white);
+    max-width: 736px;
+    width: 100%;
+    padding: var(--spacing-xl);
+    border-radius: var(--corner-radius-l);    
+    gap: var(--spacing-xl);
+}
+
+img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: var(--corner-radius-s);
+}
+
+.recipe-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-l);
+}
+
+.preparation-time {
+    background-color: var(--color-rose-50);
+    border-radius: var(--corner-radius-s);
+    padding: var(--spacing-m);
+}
+
+.preparation-time > p {
+    font-size: var(--font-size-m);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-rose-800);
+    padding-bottom: var(--spacing-s);
+}
+
+h1, h2 {
+    font-family: var(--font-family-heading);
+    font-weight: var(--font-weight-regular);
+    margin-bottom: var(--spacing-m);
+}
+
+h1 {
+    font-size: var(--font-size-xl);
+    color: var(--color-stone-900);
+}
+
+h2 {
+    font-size: var(--font-size-l);
+    color: var(--color-brown-800);
+}
+
+p, li {
+    font-family: var(--font-family-body);
+    font-weight: var(--font-weight-regular);
+    font-size: var(--font-size-s);
+    color: var(--color-stone-600);
+}
+
+.preparation-time > ul > li::marker {
+    color: var(--color-rose-800)
+}
+
+.ingredients > ul > li::marker, .instructions > ol > li::marker {
+    color: var(--color-brown-800);
+}
+
+ul, ol {
+    padding-left: 0;
+    margin-left: var(--spacing-m);
+}
+
+li {
+    margin-bottom: var(--spacing-xxs);
+    padding-left: var(--spacing-s);
+}
+
+span {
+    font-weight: var(--font-weight-bold);    
+}
+
+hr {
+    border: none;
+    height: 1px;    
+    background-color: var(--color-stone-150);
+}
+
+.nutrition > p {
+    padding-bottom: var(--spacing-m);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-s);
+}
+
+tr {
+    height: 48px;
+    border-bottom: 1px solid var(--color-stone-150);
+}
+
+tr:last-child {
+    border-bottom: none;
+}
+
+td {
+    padding: var(--spacing-xs) var(--spacing-l);    
+    vertical-align: middle;
+}
+
+td:nth-child(1) {
+    color: var(--color-stone-600);
+    font-weight: var(--font-weight-regular);
+}
+
+td:nth-child(2) {
+    color: var(--color-brown-800);
+    font-weight: var(--font-weight-semibold);
+}
+
+@media(max-width: 375px) {
+    .container {
+        padding: 0 0 0 0;
+    }
+
+    .recipe-card {
+        border-radius: 0;
+        padding: 0 0 var(--spacing-xl) 0;
+    }
+
+    img {
+        border-radius: 0;
+    }
+
+    .recipe-content {
+        margin: 0 var(--spacing-l);
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+}
+
+.attribution {
+    margin-top: auto;
+    padding: var(--spacing-s) 0;
+}
