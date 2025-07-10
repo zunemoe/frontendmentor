@@ -1,0 +1,188 @@
+/* ==========================================================================
+   CSS RESET
+   ========================================================================== */
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  /* 4. Add accessible line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+/*
+  10. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+
+:root {
+    --color-yellow: hsl(47, 88%, 63%);
+    --color-white: hsl(0, 0%, 100%);
+    --color-gray-500: hsl(0, 0%, 42%);
+    --color-gray-950: hsl(0, 0%, 7%);
+    --font-family: 'figtree', sans-serif;
+    --font-weight-regular: 500;
+    --font-weight-bold: 800;
+    --font-size-heading: 24px;
+    --font-size-heading-mobile: 20px;
+    --font-size-paragraph: 16px;
+    --font-size-xs: 14px;
+    --font-size-xs-mobile: 12px;
+    --spacing-large: 24px;
+    --spacing-medium: 12px;
+    --spacing-small: 4px;
+    --corner-radius-large: 20px;
+    --corner-radius-medium: 10px;
+    --corner-radius-small: 4px;
+    
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-yellow);
+    min-width: 100vw;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    background-color: var(--color-white);
+    width: 100%;
+    max-width: 350px;
+    margin-top: auto;
+    padding: var(--spacing-large);
+    border-radius: var(--corner-radius-large);
+    font-family: var(--font-family);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-large);
+    border: 1px solid var(--color-gray-950);
+    box-shadow: 8px 8px 0px rgba(0, 0, 0, 1);
+    transition: box-shadow 0.3s ease;
+}
+
+.card-image {
+    height: 200px;
+    width: 100%;  
+    object-fit: cover;
+    border-radius: var(--corner-radius-medium);  
+
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-medium);
+}
+
+.card-tag {
+    background-color: var(--color-yellow);
+    padding: var(--spacing-small) var(--spacing-medium);
+    border-radius: var(--corner-radius-small);    
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);  
+    width: fit-content;  
+}
+
+.card-date {
+    font-size: var(--font-size-xs);
+    color: var(--color-gray-950);
+}
+
+.card-title {
+    font-size: var(--font-size-heading);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-gray-950);
+}
+
+.card-title:hover {
+    color: var(--color-yellow);
+    cursor: pointer;
+}
+
+.card-description {
+    font-size: var(--font-size-paragraph);
+    color: var(--color-gray-500);
+}
+
+.card-profile {
+    display: flex;
+    gap: var(--spacing-medium);
+    align-items: center;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-gray-950);
+}
+
+.card-profile-avatar {
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+@media(max-width: 375px) {
+    .card-title {
+        font-size: var(--font-size-heading-mobile);
+    }
+
+    .card-tag, .card-date {
+        font-size: var(--font-size-xs-mobile);
+    }
+
+    .card-description {
+        font-size: var(--font-size-xs);
+    }
+}
+
+.attribution {
+    margin-top: auto;
+}
