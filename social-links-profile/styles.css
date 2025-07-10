@@ -1,0 +1,166 @@
+/* ==========================================================================
+   CSS RESET
+   ========================================================================== */
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  /* 4. Add accessible line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+/*
+  10. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+
+:root {
+    --color-green: hsl(75, 94%, 57%);
+    --color-white: hsl(0, 0%, 100%);
+    --color-gray-700: hsl(0, 0%, 20%);
+    --color-gray-800: hsl(0, 0%, 12%);
+    --color-gray-900: hsl(0, 0%, 8%);
+    --font-family: 'Inter', sans-serif;
+    --font-weight-regular: 400;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-size-heading: 24px;
+    --font-size-paragraph: 14px;
+    --spacing-xl: 40px;
+    --spacing-l: 24px;
+    --spacing-m: 16px;
+    --spacing-s: 12px; 
+    --spacing-xs: 8px;
+    --spacing-xxs: 4px;     
+    --corner-radius-l: 12px;
+    --corner-radius-m: 8px;    
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 100vw;
+    min-height: 100vh;
+    background-color: var(--color-gray-900);
+    font-family: var(--font-family);
+}
+
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--color-gray-800);
+    padding: var(--spacing-xl);
+    margin-top: auto;
+    border-radius: var(--corner-radius-l);
+    gap: var(--spacing-l);
+    text-align: center;
+}
+
+.profile-image {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.name-location {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xxs);
+}
+
+.name {
+    font-size: var(--font-size-heading);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-white);
+}
+
+.location {
+    font-size: var(--font-size-paragraph);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-green);
+}
+
+.bio {
+    font-size: var(--font-size-paragraph);
+    font-weight: var(--font-weight-regular);
+    color: var(--color-white);
+}
+
+.social-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-m);
+}
+
+button {
+    background-color: var(--color-gray-700);
+    color: var(--color-white);
+    font-size: var(--font-size-paragraph);
+    font-weight: var(--font-weight-bold);
+    width: 304px;
+    padding: 12px 0;
+    border: none;
+    box-shadow: non;
+    border-radius: var(--corner-radius-m);
+}
+
+button:hover {
+    background-color: var(--color-green);
+    cursor: pointer;
+}
+
+@media(max-width: 375px) {
+    .profile-card {
+        padding: var(--spacing-l);
+    }
+}
+
+.attribution {
+    margin-top: auto;
+}
