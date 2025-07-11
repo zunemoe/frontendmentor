@@ -1,0 +1,84 @@
+/* ==========================================================================
+   CSS RESET
+   ========================================================================== */
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  /* 4. Add accessible line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+/*
+  10. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+
+:root {
+    --color-red: hsl(0, 78%, 62%);
+    --color-cyan: hsl(180, 62%, 55%);
+    --color-orange: hsl(34, 97%, 64%);
+    --color-blue: hsl(212, 86%, 64%);
+    --color-grey-500: hsl(234, 12%, 34%);
+    --color-grey-400: hsl(212, 6%, 44%);
+    --color-white: hsl(0, 0%, 100%);
+    --font-h1-semibold: 600 36px/1.4 'Poppins', sans-serif;
+    --font-h1-extralight: 200 36px/1.4 'Poppins', sans-serif;
+    --font-h1-semibold-mobile: 600 24px/1.4 'Poppins', sans-serif;
+    --font-h1-extralight-mobile: 200 24px/1.4 'Poppins', sans-serif;
+    --font-h2-semibold: 600 20px/1.35 'Poppins', sans-serif;
+    --font-p1-regular: 400 15px/1.4 'Poppins', sans-serif;
+    --font-p2-regular: 400 13px/1.6 'Poppins', sans-serif;
+    --letter-spacing-l: 0.25px; /* h1 */
+    --letter-spacing-m: 0.1px; /* p1 */
+    --letter-spacing-s: 0.09px; /* p2 */
+    --spacing-l: 32px;
+    --spacing-m: 16px;
+    --spacing-s: 6px;
+    --corner-radius: 8px;
+    --card-width-d: 350px;
+    --card-width-m: 314px;
+    --card-height: 250px;
+}
