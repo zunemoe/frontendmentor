@@ -8,7 +8,7 @@
 
 /* 2. Remove default margin */
 * {
-  margin: 0;
+  margin: 0; 
 }
 
 /* 3. Enable keyword animations */
@@ -57,53 +57,157 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 :root {
-    --color-green-500: hsl(158, 36%, 37%);
-    --color-green-700: hsl(158, 42%, 18%);
-    --color-black: hsl(212, 21%, 14%);
-    --color-grey: hsl(228, 12%, 48%);
-    --color-cream: hsl(30, 38%, 92%);
-    --color-white: hsl(0, 0%, 100%);
-    --font-family-primary: 'Fraunces', serif;
-    --font-family-secondary: 'Montserrat', sans-serif;
-    --font-size-body: 14px;
-    --font-weight-medium: 500;
-    --font-weight-bold: 700;
-    --corner-radius: 8px;
+  --color-green-500: hsl(158, 36%, 37%);
+  --color-green-700: hsl(158, 42%, 18%);
+  --color-black: hsl(212, 21%, 14%);
+  --color-grey: hsl(228, 12%, 48%);
+  --color-cream: hsl(30, 38%, 92%);
+  --color-white: hsl(0, 0%, 100%);
+  --font-family-primary: 'Fraunces', serif;
+  --font-family-secondary: 'Montserrat', sans-serif;
+  --font-size-l: clamp(1.75rem, 4vw + 1rem, 2rem);
+  --font-size-m: clamp(0.875rem, 1.5vw + 0.2rem, 1.125rem);
+  --font-size-s: clamp(0.75rem, 1vw + 0.25rem, 0.875rem);
+  --spacing-xl: clamp(2rem, 6vw, 3rem);
+  --spacing-l: clamp(1.5rem, 4vw, 2rem);
+  --spacing-m: clamp(1rem, 3vw, 1.5rem);
+  --spacing-s: clamp(0.5rem, 2vw, 1rem);
+  --spacing-xs: clamp(0.25rem, 1vw, 0.5rem);
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  --corner-radius: clamp(0.5rem, 1vw, 1.5rem);
+  --card-width: clamp(21.875rem, 90vw, 37.5rem);
+  --card-padding: clamp(2rem, 4vw, 3rem);
+  --card-gap: clamp(1rem, 3vw, 2rem);
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    background-color: var(--color-cream);
-    min-width: 100dvw;
-    min-height: 100dvh;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-cream);
+  min-width: 100dvw;
+  min-height: 100dvh;
+  align-items: center;
+  justify-content: center;
+  padding: calc(var(--spacing-xl) + 2vw) var(--spacing-m);
 }
 
 .product-card {
-    background-color: var(--color-white);
-    width: 350px;
-    height: 750px;
-    border-radius: var(--corner-radius);
+  background-color: var(--color-white);
+  border-radius: var(--corner-radius);
+  width: var(--card-width);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  margin-bottom: var(--spacing-m);
 }
 
-img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
+.product-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: var(--corner-radius) var(--corner-radius) 0 0;  
 }
 
-h1, div {
-    font-family: var(--font-family-primary);
+.product-content {
+  padding: var(--card-padding);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-m);
+  flex: 1;
 }
 
-p, button {
-    font-family: var(--font-family-secondary);
+.product-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-s);
 }
 
-button {
-    background-color: var(--color-green-500);
-    color: var(--color-white);
-    border: none;
+.product-tag {
+  font-family: var(--font-family-secondary);
+  font-size: var(--font-size-s);
+  color: var(--color-grey);
+  letter-spacing: clamp(0.25rem, 1.33vw, 0.5rem);
+  text-transform: uppercase;
+  margin-bottom: var(--spacing-s);
+  line-height: 1.2;
+}
+
+.product-title {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-l);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-black);
+  margin-bottom: var(--spacing-s);
+  line-height: 1;
+}
+
+.product-description {
+  font-family: var(--font-family-secondary);
+  font-size: var(--font-size-m);
+  color: var(--color-grey);
+  line-height: 1.5;
+}
+
+.product-price {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-s);
+  padding: var(--spacing-xs) 0;
+  font-family: var(--font-family-primary);
+}
+
+.product-price-large {
+  font-size: var(--font-size-l);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-green-500);
+}
+
+.product-price-small {
+  font-size: var(--font-size-m);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-grey);
+  text-decoration: line-through;
+}
+
+.product-button {
+  background-color: var(--color-green-500);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--corner-radius);
+  padding: var(--spacing-m) var(--spacing-m);
+  font-family: var(--font-family-secondary);
+  font-size: var(--font-size-m);
+  font-weight: var(--font-weight-bold);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+}
+
+.product-button:hover {
+  background-color: var(--color-green-700);
+}
+
+@media (min-width: 48em) {
+  .product-card {
+    flex-direction: row;
+    min-height: clamp(25rem, 40vw, 28rem);
+  }
+
+  picture {
+    width: 50%;
+  }
+  
+  .product-image {
+    height: 100%;
+    border-radius: var(--corner-radius) 0 0 var(--corner-radius);
+  }
+
+  .product-content {
+    width: 50%;
+    justify-content: space-between;
+  }
 }
