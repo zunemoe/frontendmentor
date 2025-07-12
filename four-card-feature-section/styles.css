@@ -64,6 +64,7 @@ h1, h2, h3, h4, h5, h6 {
     --color-grey-500: hsl(234, 12%, 34%);
     --color-grey-400: hsl(212, 6%, 44%);
     --color-white: hsl(0, 0%, 100%);
+    --color-offwhite: hsl(0, 0%, 98%);
     --font-h1-semibold: 600 36px/1.4 'Poppins', sans-serif;
     --font-h1-extralight: 200 36px/1.4 'Poppins', sans-serif;
     --font-h1-semibold-mobile: 600 24px/1.4 'Poppins', sans-serif;
@@ -74,6 +75,7 @@ h1, h2, h3, h4, h5, h6 {
     --letter-spacing-l: 0.25px; /* h1 */
     --letter-spacing-m: 0.1px; /* p1 */
     --letter-spacing-s: 0.09px; /* p2 */
+    --spacing-xl: 60px;
     --spacing-l: 32px;
     --spacing-m: 16px;
     --spacing-s: 6px;
@@ -81,4 +83,181 @@ h1, h2, h3, h4, h5, h6 {
     --card-width-d: 350px;
     --card-width-m: 314px;
     --card-height: 250px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-offwhite);
+    min-width: 100dvw;
+    min-height: 100dvh;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xl);
+    padding: var(--spacing-l);
+}
+
+.header {
+    text-align: center;
+}
+
+.header h1 {
+    font: var(--font-h1-semibold-mobile);
+    color: var(--color-grey-500);
+    letter-spacing: var(--letter-spacing-l);
+    margin-bottom: var(--spacing-m);
+}
+
+h1 > span {
+    font: var(--font-h1-extralight-mobile);
+}
+
+.header p {
+    font: var(--font-p1-regular);
+    color: var(--color-grey-400);
+    letter-spacing: var(--letter-spacing-m);
+}
+
+.cards {
+    display: grid;
+    grid-template-rows: repeat(4, minmax(var(--card-height), auto));
+    gap: var(--spacing-l);
+}
+
+.card {
+    background-color: var(--color-white);
+    border-radius: var(--corner-radius);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    padding: var(--spacing-l);
+    width: var(--card-width-m);
+    height: var(--card-height);
+    /* display: flex;
+    flex-direction: column; */
+}
+
+.cyan::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background-color: var(--color-cyan);
+}
+
+.red::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background-color: var(--color-red);
+}
+
+.orange::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background-color: var(--color-orange);
+}
+
+.blue::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background-color: var(--color-blue);
+}
+
+.card h2 {
+    font: var(--font-h2-semibold);
+    color: var(--color-grey-500);
+    margin-bottom: var(--spacing-s);
+}
+
+.card p {
+    font: var(--font-p2-regular);
+    color: var(--color-grey-400);
+    letter-spacing: var(--letter-spacing-s);
+    margin-bottom: var(--spacing-l);
+}
+
+.card img {
+    margin-left: auto;
+}
+
+@media (min-width: 768px) {
+    .header h1 {
+        font: var(--font-h1-semibold);
+    }
+    
+    h1 > span {
+        font: var(--font-h1-extralight);
+    }
+
+    .cards {
+        grid-template-columns: 1fr 1fr;        
+        grid-template-rows: repeat(3, minmax(var(--card-height), auto));
+        justify-items: center;
+    }
+
+    .card {
+        width: var(--card-width-d);
+    }
+
+    .cyan {
+        grid-column: span 2;
+    }
+
+    .blue {
+        grid-column: span 2;
+    }
+}
+
+@media (min-width: 1200px) {
+    .header h1 {
+        font: var(--font-h1-semibold);
+    }
+    
+    h1 > span {
+        font: var(--font-h1-extralight);
+    }
+    
+    .cards {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1fr 1fr;
+        align-items: center;
+    }
+
+    .card {
+        width: var(--card-width-d);
+    }
+
+    .cyan {
+        grid-column: 1;
+        grid-row: span 2;
+    }
+
+    .red {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .orange {
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    .blue {
+        grid-column: 3;
+        grid-row: span 2;
+    }
 }
